@@ -35,5 +35,9 @@
   notify:
     - restart httpd
 
+- name: create a self-signed certificate
+  become: yes
+  command: "openssl req -x509 -nodes -batch -days 365 -newkey rsa:2048 -keyout /etc/pki/tls/certs/{{web_server_name}}.key -out /etc/pki/tls/certs/{{web_server_name}}.crt"
+
 - name: start httpd
   service: name=httpd state=started enabled=yes
