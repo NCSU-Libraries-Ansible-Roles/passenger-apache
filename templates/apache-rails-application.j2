@@ -14,7 +14,7 @@
 
    SSLCertificateFile /etc/pki/tls/certs/{{ web_server_name }}.crt
    SSLCertificateKeyFile /etc/pki/tls/certs/{{ web_server_name }}.key
-   SSLCertificateChainFile  /etc/pki/tls/certs/incommon.cert
+   # SSLCertificateChainFile  /etc/pki/tls/certs/incommon.cert
 
    {% if apache_virtualhost_lines %}
      {% for line in apache_virtualhost_lines %}
