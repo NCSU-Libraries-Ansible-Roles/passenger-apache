@@ -14,9 +14,7 @@
 # TODO: change this to a template?
 
 - name: add passenger repository
-  get_url:
-    url: https://oss-binaries.phusionpassenger.com/yum/definitions/el-passenger.repo
-    dest: /etc/yum.repos.d/
+  shell: "curl --fail -sSLo /etc/yum.repos.d/passenger.repo https://oss-binaries.phusionpassenger.com/yum/definitions/el-passenger.repo"
 
 - name: install mod_passenger
   yum: pkg=mod_passenger state=latest
